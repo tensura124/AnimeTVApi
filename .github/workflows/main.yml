@@ -3,14 +3,14 @@ name: Build APK
 on:
   push:
     branches:
-      - master  # تغيير "main" إلى "master"
+      - master  # تأكد من أن الفرع هو "master"
   pull_request:
     branches:
-      - master  # تغيير "main" إلى "master"
+      - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # سيعمل على بيئة Ubuntu في GitHub
+    runs-on: ubuntu-latest  # بيئة البناء على Ubuntu
     
     steps:
       - name: Checkout code
@@ -35,10 +35,10 @@ jobs:
       - name: Build APK
         run: |
           cd path/to/your/project
-          ./gradlew assembleRelease  # أو حسب تهيئة Gradle الخاصة بمشروعك
+          ./gradlew assembleRelease
 
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # التحديث إلى v3
         with:
           name: my-app-apk
           path: path/to/your/project/app/build/outputs/apk/release/app-release.apk
