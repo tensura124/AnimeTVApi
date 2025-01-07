@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'
+          distribution: 'zulu'  # استخدام Zulu OpenJDK بدلاً من AdoptOpenJDK
 
       - name: Set up Android SDK
         run: |
@@ -38,7 +38,7 @@ jobs:
           ./gradlew assembleRelease
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3  # التحديث إلى v3
+        uses: actions/upload-artifact@v3
         with:
           name: my-app-apk
           path: path/to/your/project/app/build/outputs/apk/release/app-release.apk
