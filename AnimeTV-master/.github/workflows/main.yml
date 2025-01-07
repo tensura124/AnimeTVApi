@@ -3,10 +3,10 @@ name: Build APK
 on:
   push:
     branches:
-      - main  # تشغيل البناء عند الدفع إلى الفرع الرئيسي
+      - master  # تغيير "main" إلى "master"
   pull_request:
     branches:
-      - main
+      - master  # تغيير "main" إلى "master"
 
 jobs:
   build:
